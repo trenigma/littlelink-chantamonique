@@ -1,6 +1,6 @@
 # Trenigma Link Page
 
-Modern, responsive link-in-bio page built with pure HTML/CSS. Deployed on GitHub Pages at **link.trenigma.dev**.
+Modern, responsive link-in-bio page built with pure HTML/CSS. Deployed on GitHub Pages at **littlelink.trenigma.dev**.
 
 ## Features
 
