@@ -1,0 +1,397 @@
+/* ============================================
+   VARIABLES & THEME CONFIGURATION
+   ============================================ */
+
+:root {
+    /* Dark Theme (Default) */
+    --bg-void: #09090E;
+    --bg-base: #0F1117;
+    --bg-surface: #161B26;
+    --bg-raised: #1E2535;
+    --bg-overlay: #252D40;
+    
+    --text-primary: #E8E8E8;
+    --text-secondary: #A0A0A0;
+    --text-muted: #707070;
+    
+    --gold: #E8A838;
+    --gold-dim: #C4892A;
+    --gold-glow: rgba(232, 168, 56, 0.12);
+    
+    --shadow: rgba(0, 0, 0, 0.3);
+    --shadow-strong: rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="light"] {
+    /* Light Theme */
+    --bg-void: #FFFFFF;
+    --bg-base: #F8F9FA;
+    --bg-surface: #FFFFFF;
+    --bg-raised: #F1F3F5;
+    --bg-overlay: #E9ECEF;
+    
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #6C757D;
+    
+    --gold: #E8A838;
+    --gold-dim: #C4892A;
+    --gold-glow: rgba(232, 168, 56, 0.08);
+    
+    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-void);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--bg-raised);
+    border: 2px solid var(--bg-overlay);
+    color: var(--gold);
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.theme-toggle:hover {
+    background: var(--bg-overlay);
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 6px 20px var(--shadow-strong);
+}
+
+.theme-toggle:active {
+    transform: rotate(15deg) scale(0.95);
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.container {
+    max-width: 680px;
+    width: 100%;
+    background: var(--bg-base);
+    border-radius: 20px;
+    padding: 60px 40px 40px;
+    box-shadow: 0 8px 32px var(--shadow-strong);
+    transition: all 0.3s ease;
+}
+
+/* ============================================
+   PROFILE SECTION
+   ============================================ */
+
+.profile {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 30px var(--gold-glow);
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    object-fit: cover;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--gold-glow);
+}
+
+.name {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.bio {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* ============================================
+   LINK BUTTONS
+   ============================================ */
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 32px;
+    background: var(--button-color);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.link-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.link-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.link-button:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.link-button:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.link-button i {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.link-button:hover i {
+    transform: rotate(5deg) scale(1.1);
+}
+
+.link-button span {
+    z-index: 1;
+}
+
+/* ============================================
+   SOCIAL ICONS
+   ============================================ */
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
+.social-icons a {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.social-icons a:hover {
+    background: var(--gold);
+    color: #000;
+    transform: translateY(-4px) rotate(5deg);
+    box-shadow: 0 6px 16px var(--shadow-strong);
+}
+
+.social-icons a:active {
+    transform: translateY(-2px) scale(0.95);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--bg-overlay);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 40px 24px 30px;
+        border-radius: 16px;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .name {
+        font-size: 28px;
+    }
+    
+    .bio {
+        font-size: 15px;
+    }
+    
+    .link-button {
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+    
+    .link-button i {
+        font-size: 18px;
+    }
+    
+    .social-icons a {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+    
+    .theme-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        top: 16px;
+        right: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+    
+    .container {
+        padding: 30px 20px 24px;
+    }
+    
+    .avatar {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .name {
+        font-size: 24px;
+    }
+    
+    .bio {
+        font-size: 14px;
+    }
+    
+    .link-button {
+        padding: 14px 20px;
+        font-size: 15px;
+        gap: 10px;
+    }
+    
+    .social-icons {
+        gap: 18px;
+    }
+    
+    .social-icons a {
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus states for keyboard navigation */
+.link-button:focus,
+.social-icons a:focus,
+.theme-toggle:focus {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .theme-toggle {
+        display: none;
+    }
+    
+    .link-button,
+    .social-icons a {
+        page-break-inside: avoid;
+    }
+}
