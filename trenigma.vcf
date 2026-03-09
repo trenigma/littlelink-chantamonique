@@ -1,5 +1,5 @@
 BEGIN:VCARD
-VERSION:3.0
+VERSION:6.0
 FN:Derek Ogletree
 N:Ogletree;Derek;;;
 NICKNAME:trenigma
@@ -10,7 +10,7 @@ TEL;TYPE=CELL:
 URL;TYPE=PROFILE:https://littlelink.trenigma.dev
 URL:https://linkedin.com/in/trenigma
 URL:https://www.instagram.com/visceral_pnw
-NOTE:Infrastructure Nerd | Outdoor Enthusiast | Community Builder.\n\nSRE/DevOps Engineer | Climbing Community Facilitator (Rising Roots PNW) | Creator of BETA climbing conditions tool.\n\nLinks:\n- Blog: https://blog.trenigma.dev\n- BETA: https://beta.trenigma.dev\n- GitHub: https://github.com/trenigma\n- LinkedIn: https://linkedin.com/in/trenigma
+NOTE:Cloud Infrastructure Nerd | Outdoor Enthusiast | Community Builder.\n\nSRE/DevOps Engineer | Climbing Community Facilitator (Rising Roots PNW) | Creator of BETA climbing conditions tool.\n\nLinks:\n- Blog: https://blog.trenigma.dev\n- BETA: https://beta.trenigma.dev\n- GitHub: https://github.com/trenigma\n- LinkedIn: https://linkedin.com/in/trenigma
 CATEGORIES:Engineering,Open Source,Climbing,Community
 REV:2026-03-08T23:00:00Z
 END:VCARD
