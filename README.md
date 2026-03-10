@@ -208,4 +208,4 @@ Personal project - all rights reserved to Derek Ogletree (trenigma).
 
 ---
 
-**Questions?** Email derek.ogletree@gmail.com or open an issue.
+**Questions?** Email tree7@protonmail.com or open an issue.
