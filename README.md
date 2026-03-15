@@ -1,211 +1,190 @@
-# Trenigma Link Page
+# Static Link Page Template
 
-Modern, responsive link-in-bio page built with pure HTML/CSS. Deployed on GitHub Pages at **littlelink.trenigma.dev**.
+A clean, modern link-in-bio page with dark/light theme toggle. Built with pure HTML/CSS/JavaScript - no frameworks, no dependencies, no bloat.
+
+**[Live Demo →](https://littlelink.trenigma.dev)**
+
+---
 
 ## Features
 
-✨ **Modern Design**
-- Dark/light theme toggle with smooth transitions
-- Smooth hover animations and icon effects
-- Mobile-optimized and responsive
-- Fast loading (<50KB total)
-- Accessibility-focused (keyboard navigation, reduced motion support)
-
-🔗 **Custom Buttons**
-- BLOG → blog.trenigma.dev
-- BETA Weather Tool → beta.trenigma.dev  
-- Calendly → Schedule time
-- Rising Roots PNW → Community Instagram
-- Ko-fi → Support my work
-- Email Me → Direct mailto link
-- Download vCard → One-click contact save
-
-📱 **Social Links**
-- GitHub
-- Instagram  
-- LinkedIn
-- Signal
-
-## Setup Instructions
-
-### 1. Initial Deployment
-
-```bash
-# From the project directory
-git add .
-git commit -m "Initial commit: Trenigma link page"
-
-# Create GitHub repo (trenigma/links or trenigma/littlelink)
-# Then push
-git remote add origin https://github.com/trenigma/links.git
-git branch -M main
-git push -u origin main
-```
-
-### 2. Enable GitHub Pages
-
-1. Go to: https://github.com/trenigma/links/settings/pages
-2. **Source:** Select "GitHub Actions" (not "Deploy from a branch")
-3. Custom domain will be handled by CNAME file automatically
-
-### 3. Configure DNS (Namecheap)
-
-Add CNAME record:
-```
-link    CNAME    trenigma.github.io
-```
-
-DNS propagation: 5-30 minutes
-
-### 4. Enable HTTPS in GitHub Pages
-
-Once DNS is verified:
-- Go to Pages settings
-- Check **☑ Enforce HTTPS**
+✨ **Dark/Light Theme Toggle** - Persistent preference using localStorage  
+📱 **Mobile-Optimized** - Responsive design, touch-friendly buttons  
+📇 **vCard Download** - Let people save your contact info  
+⚡ **Fast** - Entire site is <50KB, loads instantly  
+🎨 **Customizable** - Easy to modify colors, buttons, and layout  
+🚀 **Easy Deploy** - GitHub Pages, Netlify, Vercel, or any static host  
+♿ **Accessible** - ARIA labels, keyboard navigation, semantic HTML  
 
 ---
 
-## Analytics Setup (Optional)
+## Quick Start
 
-### Plausible + Grafana Integration
+### 1. Use This Template
 
-**Step 1: Set up Plausible**
+Click **"Use this template"** button above, or fork this repo.
 
-1. Sign up at https://plausible.io (free for hobby projects)
-2. Add site: `link.trenigma.dev`
-3. Copy the script snippet
-4. In `index.html`, uncomment the Plausible script tag (line 35)
-5. Verify data is flowing in Plausible dashboard
+### 2. Edit Your Info
 
-**Step 2: Connect to Grafana**
+Open `index.html` and customize:
+- **Profile**: Name, bio, avatar URL
+- **Buttons**: Add/remove/reorder link buttons
+- **Social Icons**: GitHub, Instagram, LinkedIn, etc.
 
-1. Install Plausible datasource plugin in Grafana Cloud
-2. Configure datasource with your Plausible site ID
-3. Import dashboard or create custom panels:
-   - Total visits
-   - Unique visitors
-   - Top referrers
-   - Button click tracking (advanced - requires event goals)
+### 3. Update vCard
 
-**Alternative:** If you want full control, implement a CloudFlare Worker → PostgreSQL/InfluxDB pipeline.
+Edit `trenigma.vcf` with your contact details.
+
+### 4. Deploy
+
+Push to GitHub and enable GitHub Pages, or deploy to any static host.
+
+See **[SETUP.md](SETUP.md)** for detailed instructions.
 
 ---
 
-## Customization Guide
+## Customization
 
-### Update Links
+### Change Button Colors
 
-Edit `index.html`:
-- Each button has `href`, `style` (colors), and icon class
-- Colors use CSS custom properties: `--button-color` and `--text-color`
+Each button has inline CSS variables:
 
-### Change Theme Colors
-
-Edit `style.css` `:root` variables:
-```css
---gold: #E8A838;  /* BETA gold */
---bg-void: #09090E;  /* Background */
-```
-
-### Add/Remove Buttons
-
-Copy an existing `.link-button` block:
 ```html
 <a href="https://example.com" 
    class="link-button" 
-   style="--button-color: #HEXCODE; --text-color: #HEXCODE;"
-   target="_blank">
-    <i class="fas fa-icon-name"></i>
+   style="--button-color: #5D3FD3; --text-color: #ffffff;">
+    <i class="fas fa-icon"></i>
     <span>Button Text</span>
 </a>
 ```
 
-Icons: Browse at https://fontawesome.com/icons
+### Add New Buttons
 
----
+Copy an existing button and modify:
+1. Update `href` URL
+2. Change icon (`fas fa-icon`)
+3. Set colors (`--button-color`, `--text-color`)
+4. Update text
 
-## Future Enhancements
+### Change Theme Colors
 
-### GitHub Sponsors (Placeholder Ready)
+Edit CSS variables in `style.css`:
 
-**When ready to activate:**
-
-1. Set up GitHub Sponsors: https://github.com/sponsors
-2. In `index.html`, uncomment the GitHub Sponsors button (around line 120)
-3. Push changes
-
-**Why:** Great for passive income on open source work like BETA. No platform fees.
-
-### Advanced Analytics
-
-**Event tracking** (track which buttons get clicked):
-- Add Plausible goals for each button
-- Add `data-plausible-event` attributes to links
-- See which links drive the most traffic
-
-### Resume Hosting
-
-**When you want to re-add Resume button:**
-
-Options:
-1. Host PDF on GitHub: `/resume.pdf`
-2. Use GitHub Gist with rendered HTML
-3. Use read.cv or similar service
-4. Self-host on blog.trenigma.dev/resume
+```css
+:root {
+    --bg-base: #0F1117;
+    --text-primary: #E8E8E8;
+    /* ... */
+}
+```
 
 ---
 
 ## File Structure
 
 ```
-littlelink-static/
+littlelink/
 ├── index.html          # Main page
-├── style.css           # Styles and theme
-├── trenigma.vcf        # vCard contact file
-├── CNAME               # Custom domain config
-├── .gitignore          # Git ignore rules
-└── README.md           # This file
+├── style.css           # All styles
+├── trenigma.vcf        # Contact card (update with your info)
+├── CNAME               # Custom domain (optional)
+├── README.md           # This file
+└── SETUP.md            # Detailed setup guide
 ```
 
 ---
 
-## Deployment
+## Tech Stack
 
-Every `git push` to `main` will auto-deploy to https://link.trenigma.dev
+- **HTML5** - Semantic markup
+- **CSS3** - Modern layouts, animations, custom properties
+- **JavaScript** - Theme toggle (vanilla, no frameworks)
+- **Font Awesome** - Icons (loaded from CDN)
 
-**No build step needed** - pure HTML/CSS served directly by GitHub Pages.
+**No build step. No package.json. Just push and deploy.** 🚀
 
 ---
 
-## Maintenance
+## Analytics (Optional)
 
-### Update Links
-Edit `index.html` → commit → push
+Plausible Analytics is commented out in `index.html`. To enable:
 
-### Update vCard
-Edit `trenigma.vcf` → commit → push
+1. Sign up at [plausible.io](https://plausible.io)
+2. Add your domain
+3. Uncomment the script tag in `index.html`
 
-### Monitor Uptime
-GitHub Pages SLA: 99.9% uptime
+Other analytics platforms (Google Analytics, Fathom, etc.) can be added similarly.
 
-### Cost
-**$0/month** forever (GitHub Pages is free for public repos)
+---
+
+## Custom Domain
+
+1. Add a `CNAME` file with your domain:
+   ```
+   link.yourdomain.com
+   ```
+
+2. Configure DNS:
+   ```
+   link    CNAME    yourusername.github.io
+   ```
+
+3. Enable HTTPS in GitHub Pages settings
+
+See [SETUP.md](SETUP.md) for detailed instructions.
+
+---
+
+## Examples
+
+**Different use cases:**
+- Personal portfolio landing page
+- Link-in-bio for social media
+- Digital business card
+- Resume/contact page
+- Event organizer links
+
+**Sites built with this template:**
+- [littlelink.trenigma.dev](https://littlelink.trenigma.dev) - Original version
+
+*Using this template? Open a PR to add your site here!*
+
+---
+
+## Contributing
+
+Found a bug? Want to add a feature? PRs welcome!
+
+**Ideas for contributions:**
+- Additional theme presets
+- More icon sets
+- Animation options
+- Multi-language support
+- Accessibility improvements
 
 ---
 
 ## License
 
-Personal project - all rights reserved to Derek Ogletree (trenigma).
+MIT License - use freely, modify as needed, just keep it open source.
 
 ---
 
 ## Credits
 
-- Built by Derek Ogletree (trenigma)
-- Icons: Font Awesome
-- Inspiration: LittleLink Server theme
-- Color scheme: Matches BETA weather tool aesthetic
+Built by [trenigma](https://github.com/trenigma) as a replacement for Docker-based LittleLink server. Simplified, modernized, and made forkable for the community.
+
+**Icons:** [Font Awesome](https://fontawesome.com)
 
 ---
 
-**Questions?** Email tree7@protonmail.com or open an issue.
+## Support
+
+Need help? Check [SETUP.md](SETUP.md) for detailed instructions.
+
+Found this useful? Consider:
+- ⭐ Star this repo
+- 🍴 Fork and customize
+- 📣 Share with others
+
+Built something cool with this? Let me know!
